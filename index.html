@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo Bhaskara</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<script>
+    function click_calcular() {
+        let valorA = parseFloat(document.getElementById("txtValorA").value);
+        let valorB = parseFloat(document.getElementById("txtValorB").value);
+        let valorC = parseFloat(document.getElementById("txtValorC").value);
+
+        let delta = valorB ** 2 - 4 * valorA * valorC;
+
+        if (isNaN(valorA) || isNaN(valorB) || isNaN(valorC)) {
+            document.getElementById("resultados").innerHTML = "Informe valores válidos para A, B e C";
+        } else if (delta < 0) {
+            document.getElementById("resultados").innerHTML = "Para Delta negativo, não existem raízes reais.";
+        } else {
+            let coeficiente1 = (-valorB + Math.sqrt(delta)) / (2 * valorA);
+            let coeficiente2 = (-valorB - Math.sqrt(delta)) / (2 * valorA);
+
+            document.getElementById("txtDelta").value = delta;
+            document.getElementById("resultados").innerHTML = `O resultado do coeficiente X1 é ${coeficiente1} e do coeficiente X2 é ${coeficiente2}`;
+        }
+    }
+
+    function click_limpar() {
+        document.getElementById("txtValorA").value = "";
+        document.getElementById("txtValorB").value = "";
+        document.getElementById("txtValorC").value = "";
+        document.getElementById("txtDelta").value = "";
+        document.getElementById("resultados").innerHTML = "";
+    }
+</script>
+
+<body>
+    <form>
+        <h1 id="tit">
+            Calculadora Bhaskara
+        </h1>
+        <div>
+            <label for="txtValorA">Informe o valor de A:</label><br>
+            <input type="number" name="" id="txtValorA">
+        </div>
+        <div>
+            <label for="txtValorB">Informe o valor de B:</label><br>
+            <input type="number" name="" id="txtValorB">
+        </div>
+        <div>
+            <label for="txtValorC">Informe o valor de C:</label><br>
+            <input type="number" name="" id="txtValorC">
+        </div>
+        <div>
+            <label for="txtDelta">Valor de Delta:</label><br>
+            <input type="number" name="" id="txtDelta" disabled>
+        </div>
+        <div id="resultados"></div>
+        <div class="button">
+            <input type="button" value="Calcular" onclick="click_calcular();">
+            <input type="button" value="Limpar" onclick="click_limpar();">
+        </div>
+    </form>
+</body>
+
+</html>

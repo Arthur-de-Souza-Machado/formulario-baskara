@@ -1,0 +1,18 @@
+@media(Max-width: 736px){
+    label{
+        padding: 10px;
+    }
+}
+body{
+    background-color: rgb(221, 215, 215)
+}
+
+form{
+    box-shadow: 5px 4px 4px rgb(71, 70, 70);
+    margin-left: 700px;
+    margin-right: 850px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 260px;
+    background-color: rgb(255, 255, 255);
+}
